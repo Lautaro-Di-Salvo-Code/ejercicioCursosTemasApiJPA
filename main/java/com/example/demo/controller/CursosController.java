@@ -19,6 +19,10 @@ public class CursosController {
     public List<CursosModel> getCursos(){
         return cur_serv.getCursos();
     }
+    @GetMapping("cursos/get/{get_id}")
+    public List<CursosModel> getSpecificCursos(@PathVariable Long get_id){
+        return cur_serv.getCursos();
+    }
     @DeleteMapping("cursos/del/{id}")
     public String deleteCursos(@PathVariable Long id){
             cur_serv.deleteCursos(id);

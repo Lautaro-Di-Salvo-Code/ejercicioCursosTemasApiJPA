@@ -10,15 +10,13 @@ la clase tema tiene los atributos id_tema, nombre, descripcion
 A partir de esto, el estudiante desea desarrollar una API 
 que le permita realizar las siguientes acciones:
 
-//Crear un nuevo curso
-//Crear temas y asociar a un curso
-//Obtener todos los cursos
-//Obtener todos los temas de un determinado curso
-//Obtener todos los cursos que contengan como nombre la palabra “Java”
-// (puede contener otras palabras, por ejemplo, Introducción a Java, 
-Java avanzado, Java para principiantes, etc).
-//Modificar los datos de un curso
-//Modificar los datos de un determinado tema
+Crear un nuevo curso
+Crear temas y asociar a un curso
+Obtener todos los cursos
+x(no se exactamente como hacerlo en java spingboot) Obtener todos los temas de un determinado curso
+x(no se exactamente como hacerlo en java spingboot) Obtener todos los cursos que contengan como nombre la palabra “Java”
+Modificar los datos de un curso
+Modificar los datos de un determinado tema
 
 
 Todas las consignas
