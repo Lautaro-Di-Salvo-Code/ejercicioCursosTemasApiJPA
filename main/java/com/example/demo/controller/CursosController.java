@@ -4,31 +4,35 @@ import com.example.demo.model.CursosModel;
 import com.example.demo.model.TemasModel;
 import com.example.demo.service.ICursoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/cursos")
 public class CursosController {
 
     @Autowired
     private ICursoService cur_serv;
 
-    @GetMapping("cursos/get")
+    @GetMapping("/get")
     public List<CursosModel> getCursos(){
         return cur_serv.getCursos();
     }
-    @GetMapping("cursos/get/{get_id}")
-    public List<CursosModel> getSpecificCursos(@PathVariable Long get_id){
-        return cur_serv.getCursos();
+    @GetMapping("/get/{get_id}")
+    public CursosModel getSpecificCursos(@PathVariable Long get_id){
+        Optional<CursosModel> curso_id = cur_serv.getCursosById(get_id);
+        return curso_id.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build()).getBody();
     }
-    @DeleteMapping("cursos/del/{id}")
+    @DeleteMapping("/del/{id}")
     public String deleteCursos(@PathVariable Long id){
             cur_serv.deleteCursos(id);
             return "Curso Eliminado";
     }
-    @PostMapping("cursos/post")
+    @PostMapping("/post")
     public String postCursos(@RequestBody CursosModel c){
         cur_serv.postCursos(c);
         return "Curso creado con exito";
@@ -47,7 +51,7 @@ public class CursosController {
 //        return cur_put;
 //    }
 //    Si no se entiende el procedo este corto, se repasa
-    @PutMapping("cursos/put")
+    @PutMapping("/put")
     public CursosModel putCursos(@RequestBody CursosModel a){
         cur_serv.putCursos_short(a);
         return cur_serv.findCursos(a.getId_curso());

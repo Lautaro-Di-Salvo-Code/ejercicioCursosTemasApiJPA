@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface ICursoService {
 
     public List<CursosModel> getCursos();
+    public Optional<CursosModel> getCursosById(Long id);
     public void postCursos(CursosModel c);
 
     public void deleteCursos(Long id);

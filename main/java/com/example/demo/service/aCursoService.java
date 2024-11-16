@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class aCursoService implements  ICursoService{
@@ -20,6 +21,11 @@ public class aCursoService implements  ICursoService{
     public List<CursosModel> getCursos() {
         List<CursosModel> get_cur = cur_repo_serv.findAll();
         return get_cur;
+    }
+
+    @Override
+    public Optional<CursosModel> getCursosById(Long id) {
+        return cur_repo_serv.findById(id);
     }
 
     @Override
